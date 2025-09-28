@@ -3,12 +3,16 @@ package controller;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.control.*;
+import model.Note;
+import model.Notebook;
 import view.GUI;
 import javafx.fxml.FXML;
 
-import java.util.Locale;
+
 
 public class Controller {
+
+    private Notebook notebook = new Notebook();
 
     Map<String, String> notesKeyPair = new HashMap<>();
     @FXML
@@ -18,24 +22,25 @@ public class Controller {
     @FXML
     private TextArea Note;
     @FXML
-    private ListView list;
+    private ListView<Note> list;
 
     @FXML
-    private void updateNote() {
-        System.out.println("updateNote() called");
+    private void addNote() {
         String title = Title.getText();
-        String note = Note.getText();
-        notesKeyPair.put(title,note);
-        System.out.println("Title: "+title);
-        System.out.println("Note: "+note);
-    }
-    @FXML
-    private void updateList() {
-        list.getItems().add(notesKeyPair);
-        System.out.println(list.getItems());
-    }
+        String content = Note.getText();
 
-    public static void main(String[] args) {
-        GUI.launch(GUI.class);
+        if (title.isEmpty() || content.isEmpty()) {
+            System.out.println("Title or content is empty!");
+            return;
+        }
+
+        Note newNote = new Note(title, content);
+
+        notebook.addNote(newNote);
+
+        list.getItems().add(newNote);
+
+        Title.clear();
+        Note.clear();
     }
 }

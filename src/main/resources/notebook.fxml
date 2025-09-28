@@ -13,7 +13,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button fx:id="Add" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#updateNote" onMouseReleased="#updateList" text="Add" />
+                  <Button fx:id="Add" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMousePressed="#addNote" text="Add" />
                   <TextField fx:id="Title" layoutX="9.0" layoutY="46.0" prefHeight="25.0" prefWidth="581.0" />
                   <TextArea fx:id="Note" layoutX="9.0" layoutY="71.0" prefHeight="200.0" prefWidth="581.0" />
                </children>
