@@ -24,6 +24,9 @@ public class Controller {
     @FXML
     private ListView<Note> list;
 
+
+    @FXML
+    public void openNote(){}
     @FXML
     private void addNote() {
         String title = Title.getText();
